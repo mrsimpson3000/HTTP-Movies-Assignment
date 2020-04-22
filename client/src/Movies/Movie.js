@@ -29,12 +29,16 @@ function Movie({ addToSavedList }) {
   return (
     <div className='save-wrapper'>
       <MovieCard movie={movie} />
-
+      {console.log(movie)}
       <div className='save-button' onClick={saveMovie}>
         Save
       </div>
-      <div className='edit-button'>Edit</div>
-      <div className='delete-button'>Delete</div>
+      <div className='edit-button' onClick={() => console.log("Edit")}>
+        Edit
+      </div>
+      <div className='delete-button' onClick={() => console.log("Delete")}>
+        Delete
+      </div>
     </div>
   );
 }
