@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useRouteMatch } from 'react-router-dom';
-import MovieCard from './MovieCard';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useRouteMatch } from "react-router-dom";
+import MovieCard from "./MovieCard";
 
 function Movie({ addToSavedList }) {
   const [movie, setMovie] = useState(null);
   const match = useRouteMatch();
 
-  const fetchMovie = id => {
+  const fetchMovie = (id) => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
-      .then(res => setMovie(res.data))
-      .catch(err => console.log(err.response));
+      .then((res) => setMovie(res.data))
+      .catch((err) => console.log(err.response));
   };
 
   const saveMovie = () => {
@@ -33,6 +33,8 @@ function Movie({ addToSavedList }) {
       <div className='save-button' onClick={saveMovie}>
         Save
       </div>
+      <div className='edit-button'>Edit</div>
+      <div className='delete-button'>Delete</div>
     </div>
   );
 }
