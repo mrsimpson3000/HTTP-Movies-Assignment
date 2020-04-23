@@ -66,6 +66,47 @@ body {
   color: white;
 }
 
+.edit-button {
+  position: absolute;
+  top: 75px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+
+.edit-button:hover {
+  background-color: green;
+  color: white;
+}
+
+.delete-button {
+  position: absolute;
+  top: 125px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+
+.delete-button:hover {
+  background-color: green;
+  color: white;
+}
+
+.update-button {
+  border: 1px solid grey;
+  padding: 10px 20px;
+  background-color: lightseagreen;
+  transition-duration: 0.4s;
+  margin: 20px 0;
+}
+
+.update-button:hover {
+  background-color: green;
+  color: white;
+}
+
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
@@ -74,4 +115,23 @@ body {
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+.form {
+  text-align: center;
+}
+
+.form input {
+  margin: 5px 0;
+  background-color: #fff;
+  font-size: 21px;
+  height: 50px;
+  width: 300px;
+  padding: 0 8px;
+  color: #1c5d76;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
 }
