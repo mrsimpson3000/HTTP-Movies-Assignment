@@ -17,10 +17,19 @@ export default function UpdateMovie(props) {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        setMovie(res.data);
       })
       .catch((err) => console.log(err));
   }, [id]);
+
+  const handleChange = (e) => {
+    e.persist();
+    setMovie({
+      ...movie,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className='form'>
@@ -29,9 +38,9 @@ export default function UpdateMovie(props) {
         <input
           type='text'
           name='title'
-          // onChange={changeHandler}
+          onChange={handleChange}
           placeholder='Title'
-          // value={item.name}
+          value={movie.title}
           required
         />
         <div className='baseline' />
@@ -39,18 +48,19 @@ export default function UpdateMovie(props) {
         <input
           type='text'
           name='director'
-          // onChange={changeHandler}
+          onChange={handleChange}
           placeholder='Director'
-          // value={item.price}
+          value={movie.director}
+          required
         />
         <div className='baseline' />
 
         <input
           type='text'
           name='metascore'
-          // onChange={changeHandler}
+          onChange={handleChange}
           placeholder='Metascore'
-          // value={item.imageUrl}
+          value={movie.metascore}
         />
         <div className='baseline' />
 
