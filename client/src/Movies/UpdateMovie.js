@@ -17,7 +17,7 @@ export default function UpdateMovie(props) {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setMovie(res.data);
       })
       .catch((err) => console.log(err));
@@ -31,10 +31,22 @@ export default function UpdateMovie(props) {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .put(`http://localhost:5000/api/movies/${id}`, movie)
+      .then((res) => {
+        console.log(res);
+        props.getMovieList();
+        push(`/movies/${id}`);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className='form'>
       <h2 className='update'>Update Movie</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type='text'
           name='title'

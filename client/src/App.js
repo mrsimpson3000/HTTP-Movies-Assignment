@@ -42,7 +42,13 @@ const App = () => {
 
       <Route
         path='/update-movie/:id'
-        render={() => <UpdateMovie movieList={movie} setMovieList={setMovie} />}
+        render={() => (
+          <UpdateMovie
+            movie={movie}
+            setMovie={setMovie}
+            getMovieList={getMovieList}
+          />
+        )}
       />
     </>
   );
