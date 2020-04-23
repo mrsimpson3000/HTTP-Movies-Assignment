@@ -94,6 +94,18 @@ body {
   color: white;
 }
 
+.update-button {
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  transition-duration: 0.4s;
+}
+
+.update-button:hover {
+  background-color: green;
+  color: white;
+}
+
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
@@ -102,4 +114,17 @@ body {
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+.form {
+  text-align: center;
+}
+
+.form input {
+  margin: 5px 0;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
 }

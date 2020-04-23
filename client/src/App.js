@@ -11,6 +11,7 @@ import axios from "axios";
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   const getMovieList = () => {
     axios
@@ -41,9 +42,7 @@ const App = () => {
 
       <Route
         path='/update-movie/:id'
-        render={() => (
-          <UpdateMovie movieList={movieList} setMovieList={setMovieList} />
-        )}
+        render={() => <UpdateMovie movieList={movie} setMovieList={setMovie} />}
       />
     </>
   );
