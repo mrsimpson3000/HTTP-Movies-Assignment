@@ -36,7 +36,7 @@ export default function UpdateMovie(props) {
     axios
       .put(`http://localhost:5000/api/movies/${id}`, movie)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         props.getMovieList();
         push(`/movies/${id}`);
       })

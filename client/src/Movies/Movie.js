@@ -4,7 +4,7 @@ import { useRouteMatch, useHistory } from "react-router-dom";
 
 import MovieCard from "./MovieCard";
 
-function Movie({ addToSavedList }) {
+function Movie({ addToSavedList, getMovieList }) {
   const [movie, setMovie] = useState(null);
   const match = useRouteMatch();
 
@@ -29,10 +29,22 @@ function Movie({ addToSavedList }) {
     return <div>Loading movie information...</div>;
   }
 
+  const deleteMovie = (e) => {
+    e.preventDefault();
+    axios
+      .delete(`http://localhost:5000/api/movies/${movie.id}`)
+      .then((res) => {
+        // console.log(res);
+        getMovieList();
+        push("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className='save-wrapper'>
       <MovieCard movie={movie} />
-      {console.log(movie.id)}
+      {/* {console.log(movie.id)} */}
       <div className='save-button' onClick={saveMovie}>
         Save
       </div>
@@ -42,7 +54,7 @@ function Movie({ addToSavedList }) {
       >
         Edit
       </div>
-      <div className='delete-button' onClick={() => console.log("Delete")}>
+      <div className='delete-button' onClick={deleteMovie}>
         Delete
       </div>
     </div>
